@@ -29,10 +29,10 @@
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 gap-1 gap-sm-0">
         <button class="btn btn-outline-primary rounded-0" onclick="printHelloWorld()"> PRINT TEXT </button>
-        <button class="btn btn-outline-primary rounded-0" onclick="makeTextBold()"> <b>BOLD</b> </button>
-        <button class="btn btn-outline-primary rounded-0" onclick="makeTextItalic()"> <i>ITALIC</i> </button>
-        <button class="btn btn-outline-primary rounded-0" onclick="makeTextUnderline()"> <u>UNDERLINE</u> </button>
-        <button class="btn btn-outline-primary rounded-0" onclick="resetTextStyle()"> RESET </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="applyStyle('bold')"> <b>BOLD</b> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="applyStyle('italics')"> <i>ITALIC</i> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="applyStyle('underline')"> <u>UNDERLINE</u> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="applyStyle('none')"> RESET </button>
     </div>
 
 </main>
@@ -47,34 +47,52 @@
             }
         }
 
-        function makeTextBold() {
+        function applyStyle(styleType) {
             let labelEl = document.getElementById("displayLabel");
-            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("fw-bold")) {
-                labelEl.classList.add("fw-bold");
+            if (labelEl != null && labelEl.innerText.length !== 0) {
+                switch (styleType) {
+                    case "bold":
+                        if (!labelEl.classList.contains("fw-bold")) {
+                            labelEl.classList.add("fw-bold");
+                        }
+                        else{
+                            labelEl.classList.remove("fw-bold");
+                        }
+                        break;
+
+                    case "italics":
+                        if (!labelEl.classList.contains("fst-italic")) {
+                            labelEl.classList.add("fst-italic");
+                        }
+                        else{
+                            labelEl.classList.remove("fst-italic");
+                        }
+                        break;
+
+                    case "underline":
+                        if (!labelEl.classList.contains("text-decoration-underline")) {
+                            labelEl.classList.add("text-decoration-underline");
+                        }
+                        else{
+                            labelEl.classList.remove("text-decoration-underline");
+                        }
+                        break;
+
+                    case "none":
+                        if (!labelEl.classList.length !== 0) {
+                            labelEl.classList.remove("fw-bold", "fst-italic", "text-decoration-underline");
+                        }
+                        break;
+
+                    default:
+                        alert("Invalid style type.");
+                        break;
+                }
+            }
+            else {
+                alert("Please first click PRINT TEXT button.");
             }
         }
-
-        function makeTextItalic() {
-            let labelEl = document.getElementById("displayLabel");
-            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("fst-italic")) {
-                labelEl.classList.add("fst-italic");
-            }
-        }
-
-        function makeTextUnderline() {
-            let labelEl = document.getElementById("displayLabel");
-            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("text-decoration-underline")) {
-                labelEl.classList.add("text-decoration-underline");
-            }
-        }
-
-        function resetTextStyle() {
-            let labelEl = document.getElementById("displayLabel");
-            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.length !== 0) {
-                labelEl.classList.remove("fw-bold", "fst-italic", "text-decoration-underline");
-            }
-        }
-
 
     </script>
 }

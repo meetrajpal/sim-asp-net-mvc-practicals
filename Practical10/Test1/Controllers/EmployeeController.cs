@@ -2,7 +2,7 @@
 
 namespace Test1.Controllers
 {
-    [RoutePrefix("employee-details")]
+    [RoutePrefix("Employee")]
     public class EmployeeController : Controller
     {
         [Route("~/")]

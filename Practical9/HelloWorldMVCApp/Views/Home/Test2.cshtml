@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Test2";
+}
+
+<main>
+
+    <h2>Test 2: Create a Web page with the following features in MVC Project and implement it with the help of JavaScript only.</h2>
+
+    <hr />
+
+    <ol>
+        <li>Place a button (PRINT TEXT) on the web page & on the click of the button “Hello World” should be displayed on a label.</li>
+
+        <li>Place another button (BOLD) on the web page & on the click of the button, the displayed string should be displayed in Bold Style.</li>
+
+        <li>Place another button (ITALIC) on the web page & on the click of the button, the displayed string should be displayed in Italic Style.</li>
+
+        <li>Place another button (UNDERLINE) on the web page & on the click of the button, the displayed string should be displayed in Underline Style.</li>
+
+        <li>Place another button (RESET) on the web page & on the click of the button, the displayed string should be displayed in the normal default style.</li>
+    </ol>
+
+    <hr />
+
+    <label id="displayLabel"></label>
+
+    <hr />
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 gap-1 gap-sm-0">
+        <button class="btn btn-outline-primary rounded-0" onclick="printHelloWorld()"> PRINT TEXT </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="makeTextBold()"> <b>BOLD</b> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="makeTextItalic()"> <i>ITALIC</i> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="makeTextUnderline()"> <u>UNDERLINE</u> </button>
+        <button class="btn btn-outline-primary rounded-0" onclick="resetTextStyle()"> RESET </button>
+    </div>
+
+</main>
+
+@section Scripts {
+    <script>
+
+        function printHelloWorld() {
+            let labelEl = document.getElementById("displayLabel");
+            if (labelEl != null && !labelEl.innerText.match("Hello World")) {
+                labelEl.innerText = labelEl.innerText.concat("Hello World");
+            }
+        }
+
+        function makeTextBold() {
+            let labelEl = document.getElementById("displayLabel");
+            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("fw-bold")) {
+                labelEl.classList.add("fw-bold");
+            }
+        }
+
+        function makeTextItalic() {
+            let labelEl = document.getElementById("displayLabel");
+            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("fst-italic")) {
+                labelEl.classList.add("fst-italic");
+            }
+        }
+
+        function makeTextUnderline() {
+            let labelEl = document.getElementById("displayLabel");
+            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.contains("text-decoration-underline")) {
+                labelEl.classList.add("text-decoration-underline");
+            }
+        }
+
+        function resetTextStyle() {
+            let labelEl = document.getElementById("displayLabel");
+            if (labelEl != null && labelEl.innerText.length !== 0 && !labelEl.classList.length !== 0) {
+                labelEl.classList.remove("fw-bold", "fst-italic", "text-decoration-underline");
+            }
+        }
+
+
+    </script>
+}

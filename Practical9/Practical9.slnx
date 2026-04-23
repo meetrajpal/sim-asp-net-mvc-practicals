@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="HelloWorldMVCApp.Tests/HelloWorldMVCApp.Tests.csproj" />
+  <Project Path="HelloWorldMVCApp/HelloWorldMVCApp.csproj" />
+</Solution>

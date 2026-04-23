@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="HelloWorldMVCApp.Tests/HelloWorldMVCApp.Tests.csproj" />
-  <Project Path="HelloWorldMVCApp/HelloWorldMVCApp.csproj" />
+  <Project Path="HelloWorldMVCApp.Tests/HelloWorldMVCApp.Tests.csproj" Id="51ce865c-c0df-44b2-afc6-69e54eadea9b" />
+  <Project Path="HelloWorldMVCApp/HelloWorldMVCApp.csproj" Id="e81ba8bd-de7e-4850-b2e0-74f810afed97" />
 </Solution>

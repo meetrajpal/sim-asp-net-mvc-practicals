@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Test2.Models.Entities.Student>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h2>
+        Task:
+    </h2>
+    <ul>
+        <li>
+            Create an MVC project for the demo of CRUD functionality.
+        </li>
+        <li>
+            The user should save the output to a static list created in the controller.
+        </li>
+        <li>
+            The fields to be used for forms should be Name, Date of birth, Address, etc.
+        </li>
+        <li>
+            There should be each action on the controller for create, update, delete & view.
+        </li>
+        <li>
+            Use Partial views to create views for create, update & delete.
+        </li>
+    </ul>
+
+    <hr />
+
+
+    <p>
+        <button class="btn btn-primary" onclick="openCreate()">
+            <span class="bi bi-plus-lg"></span> New
+        </button>
+    </p>
+
+    @Html.Partial("_StudentListPartial", Model)
+
+    @Html.Partial("_StudentFormModalPartial")
+
+</main>
+
+@section Scripts {
+    <script>
+        function openCreate() {
+            document.getElementById("studentForm").action = "@Url.Action("Create", "Student")";
+            document.getElementById("modalTitle").innerText = "Create Student";
+            document.getElementById("studentForm").reset();
+            document.getElementById("Id").value ="0";
+            document.getElementById("DateOfBirth").value = "";
+            var modal = new bootstrap.Modal(document.getElementById("studentModal"));
+            modal.show();
+        }
+
+        function openEdit(id, fullName, dob, address) {
+          document.getElementById("studentForm").action = "@Url.Action("Edit", "Student")";  
+            document.getElementById("modalTitle").innerText = "Edit Student";
+            document.getElementById("Id").value = id;
+            document.getElementById("FullName").value = fullName;
+            document.getElementById("DateOfBirth").value = dob;
+            document.getElementById("Address").value = address;
+            var modal = new bootstrap.Modal(document.getElementById("studentModal"));
+            modal.show();
+        }
+    </script>
+}

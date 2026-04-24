@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="Test1/Test1.csproj" Id="bad00aa8-4062-4499-9c60-c9c8dc5a0143" />
+  <Project Path="Test2/Test2.csproj" Id="fc0cc26e-7af5-47fe-a3e7-f7e621160a6a" />
+  <Project Path="Test3/Test3.csproj" Id="f2e23552-46ab-47c2-a15f-227b64ff224b" />
 </Solution>

@@ -4,15 +4,41 @@
 
 <main>
 
+    <h2>
+        Task:
+    </h2>
+    <ul>
+        <li>
+            Create MVC Page to display a demo of various type of Action Results like ContentResult, FileContentResult, EmptyResult, JavaScriptResult, JsonResult, etc.
+        </li>
+    </ul>
+
     <dl>
         <dt>Notes</dt>
         <dd>
             <ul>
                 <li>
-                    Please use menus given in navigation bar to check for particular Action Result.
+                    Please use buttons given below to check for particular Action Result.
                 </li>
             </ul>
         </dd>
     </dl>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 gap-1 gap-md-0">
+        @Html.ActionLink("ContentResult", "ContentResult", "Home", new { area = "" }, new { @class = "btn btn-outline-primary rounded-0" })
+        @Html.ActionLink("FileContentResult", "FileContentResult", "Home", new { area = "" }, new { @class = "btn btn-outline-primary rounded-0" })
+        @Html.ActionLink("EmptyResult", "EmptyResult", "Home", new { area = "" }, new { @class = "btn btn-outline-primary rounded-0" })
+        @Html.ActionLink("JsonResult", "JsonResult", "Home", new { area = "" }, new { @class = "btn btn-outline-primary rounded-0" })
+        @Ajax.ActionLink(
+            "JavaScriptResult",
+            "JavaScriptResult",
+            null,
+            new AjaxOptions
+            {
+                HttpMethod = "GET",
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+    </div>
 
 </main>

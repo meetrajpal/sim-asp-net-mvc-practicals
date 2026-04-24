@@ -1,13 +1,17 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+﻿<main class="my-5">
+
+    <div class="text-center">
+        
+        <h2>
+            Something went wrong
+        </h2>
+
+        <p class="fs-5">
+            Either the page / resource was not found or error occured at server side.
+        </p>
+
+        @Html.ActionLink("Back to Home", "Index", "Home", null, new {@class = "btn btn-outline-secondary"})
+
+    </div>
+
+</main>

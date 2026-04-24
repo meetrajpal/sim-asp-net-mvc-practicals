@@ -1,0 +1,76 @@
+﻿@model Test4.Models.Models.Calculator
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<main>
+
+    <h2>
+        Task:
+    </h2>
+    <ul>
+        <li>
+            Create an MVC Project for a demo of Exception Filter. Create an action that throws Divide by Zero exception and use the exception filter to handle the error properly.
+        </li>
+    </ul>
+
+    <hr />
+
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "calcForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal row gap-3 gap-md-0">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group col-12 col-md-5 col-lg-3">
+                @Html.LabelFor(model => model.Number1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Number1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Number1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-12 col-md-5 col-lg-3">
+                @Html.LabelFor(model => model.Operation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Operation, new SelectList(Enum.GetValues(typeof(Test4.Models.Enums.CalcOperation))), "Select Operation", new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.Operation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-12 col-md-5 col-lg-3">
+                @Html.LabelFor(model => model.Number2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Number2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Number2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-12 col-md-5 col-lg-3">
+                @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @if (Model != null)
+                {
+                    <div class="col-md-10 my-1 fs-5">
+                        @Model.Answer
+                    </div>
+                }
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Calculate" class="btn btn-primary" />
+                    @Html.ActionLink("Reset", "Index", "Home", new {@class = "btn btn-danger"})
+                </div>
+            </div>
+
+        </div>
+    }
+
+</main>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

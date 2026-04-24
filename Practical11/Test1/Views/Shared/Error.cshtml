@@ -1,0 +1,21 @@
+﻿<main class="my-5">
+
+    <div class="text-center">
+
+        <h2>
+            Something went wrong
+        </h2>
+
+        <p class="fs-3">
+            Either the page / resource was not found or error occured at server side.
+        </p>
+
+        <p class="fs-5 text-danger">
+            @(ViewBag.ErrorMessage != null ? $"Error: {ViewBag.ErrorMessage}" : "")
+        </p>
+
+        @Html.ActionLink("Back to Home", "Index", "Student", null, new { @class = "btn btn-outline-secondary" })
+
+    </div>
+
+</main>

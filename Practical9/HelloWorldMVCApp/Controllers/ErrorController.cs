@@ -6,8 +6,7 @@ namespace HelloWorldMVCApp.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Error";
-            return View("~/Views/Shared/Error.cshtml");
+            return View("Error");
         }
     }
 }

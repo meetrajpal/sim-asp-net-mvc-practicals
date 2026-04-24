@@ -1,7 +1,11 @@
-﻿<main class="my-5">
+﻿@{
+    ViewBag.Title = "Error";
+}
+
+<main class="my-5">
 
     <div class="text-center">
-        
+
         <h2>
             Something went wrong
         </h2>
@@ -10,7 +14,7 @@
             Either the page / resource was not found or error occured at server side.
         </p>
 
-        @Html.ActionLink("Back to Home", "Index", "Home", null, new {@class = "btn btn-outline-secondary"})
+        @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })
 
     </div>
 

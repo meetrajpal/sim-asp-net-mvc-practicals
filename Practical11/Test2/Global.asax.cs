@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -18,13 +17,14 @@ namespace Test2
         protected void Application_Error()
         {
             var exception = Server.GetLastError();
+            Server.ClearError();
 
-            if (exception is HttpException httpEx && httpEx.GetHttpCode() == 500)
+            if (Session != null)
             {
-                Server.ClearError();
-
-                Response.Redirect("~/Error");
+                Session["ErrorMessage"] = exception?.Message;
             }
+
+            Response.Redirect("~/Error");
         }
     }
 }

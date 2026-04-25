@@ -39,6 +39,8 @@
 
     @Html.Partial("_StudentFormModalPartial")
 
+    @Html.Partial("_StudentDeleteConfirmPartial")
+
 </main>
 
 @section Scripts {
@@ -54,13 +56,19 @@
         }
 
         function openEdit(id, fullName, dob, address) {
-          document.getElementById("studentForm").action = "@Url.Action("Edit", "Student")";  
+            document.getElementById("studentForm").action = "@Url.Action("Edit", "Student")";  
             document.getElementById("modalTitle").innerText = "Edit Student";
             document.getElementById("Id").value = id;
             document.getElementById("FullName").value = fullName;
             document.getElementById("DateOfBirth").value = dob;
             document.getElementById("Address").value = address;
             var modal = new bootstrap.Modal(document.getElementById("studentModal"));
+            modal.show();
+        }
+
+        function openDelete(id) {
+            document.getElementById("deleteStudentBtn").href = `/Student/Delete/${id}`;
+            var modal = new bootstrap.Modal(document.getElementById("studentDeleteModal"));
             modal.show();
         }
     </script>

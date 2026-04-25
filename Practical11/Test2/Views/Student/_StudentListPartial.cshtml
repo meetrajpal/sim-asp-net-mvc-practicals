@@ -17,18 +17,17 @@
                 <td>@item.DateOfBirth.ToString("dd/MM/yyyy")</td>
                 <td>@item.Address</td>
                 <td>
-                   <button class="btn btn-warning"
+                    <button class="btn btn-warning"
                             onclick="openEdit('@item.Id', '@item.FullName', '@item.DateOfBirth.ToString("yyyy-MM-dd")', '@item.Address')"
                             title="Edit Entry">
                         <span class="bi bi-pen-fill"></span>
                     </button>
 
-                    <a href="@Url.Action("Delete", new { id = item.Id })"
-                       class="btn btn-danger"
-                       title="Delete Entry"
-                       onclick="return confirm('Are you sure you want to delete this entry?')">
+                    <button class="btn btn-danger"
+                            onclick="openDelete('@item.Id')"
+                            title="Delete Entry">
                         <span class="bi bi-trash-fill"></span>
-                    </a>
+                    </button>
                 </td>
             </tr>
         }

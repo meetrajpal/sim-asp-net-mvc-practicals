@@ -182,6 +182,7 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\_StudentListPartial.cshtml" />
     <Content Include="Views\Student\_StudentFormModalPartial.cshtml" />
+    <Content Include="Views\Student\_StudentDeleteConfirmPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

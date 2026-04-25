@@ -5,7 +5,6 @@
         Add,
         Subtract,
         Multiply,
-        Divide,
-        Modulus
+        Divide
     }
 }

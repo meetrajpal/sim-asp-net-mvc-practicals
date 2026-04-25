@@ -14,7 +14,7 @@ namespace Test4.Controllers
 
         [HttpPost]
         [HandleError(View = "Error")]
-        [CustomDivideByZeroFilter]
+        [CustomArithmeticExceptionFilter]
         [ValidateAntiForgeryToken]
         public ActionResult Index(Calculator model, string reset)
         {

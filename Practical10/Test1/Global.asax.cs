@@ -18,12 +18,14 @@ namespace Test1
         protected void Application_Error()
         {
             var exception = Server.GetLastError();
+            Server.ClearError();
 
-            if (exception is HttpException httpEx && httpEx.GetHttpCode() == 500)
+            if (Session != null)
             {
-                Server.ClearError();
-                Response.Redirect("~/Error");
+                Session["ErrorMessage"] = exception?.Message;
             }
+
+            Response.Redirect("~/Error");
         }
     }
 }

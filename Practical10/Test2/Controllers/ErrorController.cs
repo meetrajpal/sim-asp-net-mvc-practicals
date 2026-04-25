@@ -7,6 +7,10 @@ namespace Test2.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Error";
+
+            ViewBag.ErrorMessage = Session?["ErrorMessage"];
+            Session?.Remove("ErrorMessage");
+
             return View("Error");
         }
     }

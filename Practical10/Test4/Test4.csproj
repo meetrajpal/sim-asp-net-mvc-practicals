@@ -125,7 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Filters\CustomDivideByZeroFilter.cs" />
+    <Compile Include="Models\Filters\CustomArithmeticExceptionFilter.cs" />
     <Compile Include="Models\Models\Calculator.cs" />
     <Compile Include="Models\Enums\CalcOperation.cs" />
     <Compile Include="Models\Services\CalculatorService.cs" />

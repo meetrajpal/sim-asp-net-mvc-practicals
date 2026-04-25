@@ -25,12 +25,10 @@ namespace Test4.Models.Services
 
                 case (CalcOperation.Divide):
                     if (model.Number2 == 0)
+                    {
                         throw new DivideByZeroException("Cannot divide by zero!");
+                    }
                     model.Answer = model.Number1 / model.Number2;
-                    break;
-
-                case (CalcOperation.Modulus):
-                    model.Answer = model.Number1 % model.Number2;
                     break;
             }
 

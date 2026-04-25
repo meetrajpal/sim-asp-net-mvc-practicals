@@ -10,8 +10,12 @@
             Something went wrong
         </h2>
 
-        <p class="fs-5">
+        <p class="fs-3">
             Either the page / resource was not found or error occured at server side.
+        </p>
+
+        <p class="fs-5 text-danger">
+            @(ViewBag.ErrorMessage ?? "")
         </p>
 
         @Html.ActionLink("Back to Home", "Index", "Employee", null, new { @class = "btn btn-outline-secondary" })

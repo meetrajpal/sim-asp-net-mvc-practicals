@@ -11,7 +11,7 @@
         </p>
 
         <p class="fs-5 text-danger">
-            @(ViewBag.ErrorMessage != null ? $"Error: {ViewBag.ErrorMessage}" : "")
+            @(ViewBag.ErrorMessage ?? "")
         </p>
 
         @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-outline-secondary" })

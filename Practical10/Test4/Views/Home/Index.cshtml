@@ -61,9 +61,17 @@
             <div class="form-group mt-3">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Calculate" class="btn btn-primary" />
-                    @Html.ActionLink("Reset", "Index", "Home", new {@class = "btn btn-danger"})
+                    @Html.ActionLink("Reset", "Index", "Home", null ,new {@class = "btn btn-danger"})
                 </div>
             </div>
+
+           @if (Session["ErrorMessage"] != null)
+           {
+                    <p class="text-danger">
+                        @Session["ErrorMessage"]
+                    </p>
+               { Session.Remove("ErrorMessage"); }
+           }
 
         </div>
     }

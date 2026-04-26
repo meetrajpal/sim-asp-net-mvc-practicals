@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Test2.Models.Entities.Designation>
+
+<p>
+    <a href="@Url.Action("Create", "Designation")" class="btn btn-primary" title="Create new entry">
+        <span class="bi bi-plus-lg"></span> New
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignationName)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Designation",  new { id = item.Id })" class="btn btn-warning" title="Edit Entry">
+                <span class="bi bi-pen-fill"></span>
+            </a>
+            <a href="@Url.Action("Delete", "Designation", new { id = item.Id })"
+               class="btn btn-danger"
+               title="Delete Entry"
+               onclick="return confirm('Are you sure you want to delete this entry?')">
+                <span class="bi bi-trash-fill"></span>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

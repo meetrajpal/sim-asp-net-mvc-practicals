@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Test2.Models.ViewModels.DesignationEmployeeCount>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCount)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeCount)
+            </td>
+        </tr>
+    }
+
+</table>
+

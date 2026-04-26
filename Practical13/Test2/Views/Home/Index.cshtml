@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Test2.Models.Entities.Employee>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+
+    <h2>
+        Task:
+    </h2>
+
+    <ol>
+        <li>Implement CRUD functionality for both tables (Designation, Employee).</li>
+        <li>While implementing Insert/Update functionality for Employee table, a list of inserted Designations should be displayed to the user. Whichever designation is selected by the user should be inserted/updated into the database.</li>
+        <li>Add a button to the page and on click of that button, Columns should be displayed with the help of LINQ query. Columns are Employee Id, First Name, Middle Name, Last Name, Designation Name, DOB, Mobile Number, Address & Salary</li>
+        <li>Add a button to the page and on click of that button, display the count number of records of the employee by designation name using LINQ query.</li>
+    </ol>
+
+    <hr />
+
+    @Ajax.ActionLink(
+        "Employee count per Designation",
+        "CountByDesignation",
+        "Employee",
+        null,
+        new AjaxOptions
+        {
+            UpdateTargetId = "output",
+            HttpMethod = "GET"
+        },
+        new { @class = "btn btn-outline-primary" }
+    )
+
+    <hr />
+
+    <section id="output">
+    </section>
+
+    <hr/>
+
+    @{Html.RenderPartial("~/Views/Employee/_EmployeeListPartial.cshtml", Model);}
+</main>

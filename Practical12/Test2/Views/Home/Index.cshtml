@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Test2.Models.Entities.Employee>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h2>
+        Task:
+    </h2>
+  
+    <ol>
+        <li>
+            (New button) Insert records in the above table.
+        </li>
+        <li>
+            (Button 2) Write an SQL query to find the total amount of salaries.
+        </li>
+        <li>
+            (Button 3) Write an SQL query to find all employees having DOB less than 01-01-2000.
+        </li>
+        <li>
+            (Button 4) Write an SQL query to count employees having Middle Name NULL.
+        </li>
+    </ol>
+
+    <hr />
+
+    <dl>
+        <dt>Notes</dt>
+        <dd>
+            <ul>
+                <li>
+                    Inserting Query is used in adding new employee.
+                </li>
+                <li>
+                    Other query tasks are separated in different buttons below.
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    <hr />
+
+    @{Html.RenderPartial("~/Views/Employee/_EmployeeListPartial.cshtml", Model);}
+</main>

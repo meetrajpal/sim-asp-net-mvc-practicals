@@ -1,0 +1,30 @@
+﻿using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+
+namespace Test2
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_Error()
+        {
+            var exception = Server.GetLastError();
+            Server.ClearError();
+
+            if (Session != null)
+            {
+                Session["ErrorMessage"] = exception?.Message;
+            }
+
+            Response.Redirect("~/Error");
+        }
+    }
+}

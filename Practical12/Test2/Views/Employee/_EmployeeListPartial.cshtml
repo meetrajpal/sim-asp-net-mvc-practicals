@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Test2.Models.Entities.Employee>
+
+<section>
+    <a href="@Url.Action("Create", "Employee")" class="btn btn-primary" title="Create new entry">
+        <span class="bi bi-plus-lg"></span> New
+    </a>
+    <a href="@Url.Action("TotalSalary", "Employee")" class="btn btn-primary" title="Execute Query">
+        Button 2 (Total Salary)
+    </a>
+    <a href="@Url.Action("DOBLT112000", "Employee")" class="btn btn-primary" title="Execute Query">
+        Button 3 (DOB)
+    </a>
+    <a href="@Url.Action("MiddleNameNull", "Employee")" class="btn btn-primary" title="Execute Query">
+        Button 4 (Null Middle Name)
+    </a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary" title="Reset Filter">
+        Reset
+    </a>
+    <p class="text-danger">
+        @(TempData["Error"] ?? "")
+    </p>
+</section>
+
+<p class="text-info">
+    @(TempData["Output"] ?? "")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @item.DOB.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Employee",  new { id = item.Id })" class="btn btn-warning" title="Edit Entry">
+                    <span class="bi bi-pen-fill"></span>
+                </a>
+                <a href="@Url.Action("Delete", "Employee", new { id = item.Id })"
+                   class="btn btn-danger"
+                   title="Delete Entry"
+                   onclick="return confirm('Are you sure you want to delete this entry?')">
+                    <span class="bi bi-trash-fill"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

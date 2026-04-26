@@ -1,0 +1,130 @@
+﻿@{ 
+    ViewBag.Title = "Home Page";
+}
+
+
+<main>
+    <h2>
+        Task:
+    </h2>
+
+    <ol>
+        <li>
+            Create two tables with following columns & data type (Designation and Employee)
+        </li>
+        <li>Insert records in the above two tables</li>
+        <li>Write a query to count the number of records by designation name</li>
+        <li>Write a query to display First Name, Middle Name, Last Name & Designation name</li>
+        <li>Create a database view that outputs Employee Id, First Name, Middle Name, Last Name, Designation, DOB, Mobile Number, Address & Salary</li>
+        <li>Create a stored procedure to insert data into the Designation table with required parameters</li>
+        <li>Create a stored procedure to insert data into the Employee table with required parameters</li>
+        <li>Write a query that displays only those designation names that have more than 1 employee</li>
+        <li>Create a stored procedure that returns a list of employees with columns Employee Id, First Name, Middle Name, Last Name, Designation, DOB, Mobile Number, Address & Salary (records should be ordered by DOB)</li>
+        <li>Create a stored procedure that return a list of employees by designation id (Input) with columns Employee Id, First Name, Middle Name, Last Name, DOB, Mobile Number, Address & Salary (records should be ordered by First Name)</li>
+        <li>Create Non-Clustered index on the DesignationId column of the Employee table</li>
+        <li>Write a query to find the employee having maximum salary</li>
+    </ol>
+
+    <hr />
+
+    <dl>
+        <dt>Notes</dt>
+        <dd>
+            <ul>
+                <li>
+                    Creation of all the objects like procedures, views etc. is in DatabaseInitializer class.
+                </li>
+                <li>
+                    Stored procedures are used to insert the records in database.
+                </li>
+                <li>
+                    Other query out put are separated in buttons given below.
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    <hr />
+
+    <section class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+        @Html.ActionLink("Reset", "Index", "Home", null, new { @class = "btn btn-outline-secondary rounded-0" })
+
+        @Ajax.ActionLink(
+            "Employee count per Designation",
+            "Count",
+            "Designation",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+
+        @Ajax.ActionLink(
+            "Employee summary",
+            "Summary",
+            "Employee",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+        @Ajax.ActionLink(
+            "Designations with more than 1 employee",
+            "MultipleEmployees",
+            "Designation",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+        @Ajax.ActionLink(
+            "Employees ordered by DOB",
+            "ByDOB",
+            "Employee",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+        @Ajax.ActionLink(
+            "Employees by designation",
+            "ByDesignation",
+            "Employee",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+        @Ajax.ActionLink(
+            "Max Salary Employee",
+            "MaxSalary",
+            "Employee",
+            null,
+            new AjaxOptions
+            {
+                UpdateTargetId = "output",
+                HttpMethod = "GET"
+            },
+            new { @class = "btn btn-outline-primary rounded-0" }
+        )
+    </section>
+
+    <section id="output">
+
+    </section>
+</main>

@@ -17,7 +17,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Employees2 ORDER BY Id;", connection))
+                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Test2.Employees ORDER BY Id;", connection))
                 {
                     connection.Open();
                     using (var reader = command.ExecuteReader())
@@ -41,7 +41,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Employees2 WHERE Id = @Id;", connection))
+                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Test2.Employees WHERE Id = @Id;", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -70,7 +70,7 @@ namespace Test2.Models.Repositories
 
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                INSERT INTO Employees2 (FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary) VALUES (@FirstName, @MiddleName, @LastName, @DOB, @MobileNumber, @Address, @Salary);",
+                INSERT INTO Test2.Employees (FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary) VALUES (@FirstName, @MiddleName, @LastName, @DOB, @MobileNumber, @Address, @Salary);",
                     connection))
                 {
                     MapToParameters(command, entity);
@@ -98,7 +98,7 @@ namespace Test2.Models.Repositories
 
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                UPDATE Employees2 SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, DOB = @DOB, MobileNumber = @MobileNumber, Address = @Address, Salary = @Salary WHERE Id = @Id;", connection))
+                UPDATE Test2.Employees SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, DOB = @DOB, MobileNumber = @MobileNumber, Address = @Address, Salary = @Salary WHERE Id = @Id;", connection))
                 {
                     command.Parameters.AddWithValue("@Id", entity.Id);
                     MapToParameters(command, entity);
@@ -130,7 +130,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "DELETE FROM Employees2 WHERE Id = @Id", connection))
+                    "DELETE FROM Test2.Employees WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -156,7 +156,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "SELECT SUM(Salary) FROM Employees2;", connection))
+                    "SELECT SUM(Salary) FROM Test2.Employees;", connection))
                 {
                     connection.Open();
                     var salary = (decimal)command.ExecuteScalar();
@@ -177,7 +177,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Employees2 WHERE DOB < '2000-01-01' ORDER BY Id;", connection))
+                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Test2.Employees WHERE DOB < '2000-01-01' ORDER BY Id;", connection))
                 {
                     connection.Open();
                     using (var reader = command.ExecuteReader())
@@ -203,7 +203,7 @@ namespace Test2.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Employees2 WHERE MiddleName IS NULL ORDER BY Id;", connection))
+                SELECT Id, FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary FROM Test2.Employees WHERE MiddleName IS NULL ORDER BY Id;", connection))
                 {
                     connection.Open();
                     using (var reader = command.ExecuteReader())

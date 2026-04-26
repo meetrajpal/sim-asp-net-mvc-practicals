@@ -1,7 +1,10 @@
 ﻿USE Practical12DB;
 GO
 
-CREATE TABLE Employees2
+CREATE SCHEMA Test2
+GO
+
+CREATE TABLE Test2.Employees
 (
     Id           INT PRIMARY KEY IDENTITY(1,1),
     FirstName    NVARCHAR(50)   NOT NULL,
@@ -14,7 +17,7 @@ CREATE TABLE Employees2
 );
 GO
 
-INSERT INTO Employees2 (FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary) VALUES
+INSERT INTO Test2.Employees (FirstName, MiddleName, LastName, DOB, MobileNumber, Address, Salary) VALUES
 ('John',  'William', 'Doe',     '2000-05-15', '9876543210', '123 Main St, New York', 12345.25),
 ('Jane',  NULL,      'Smith',   '1999-08-22', '8765432109', NULL, 98745.00),
 ('Alice', 'Mary',    'Johnson', '2001-03-10', '7654321098', '456 Park Ave, London', 78542.00),

@@ -19,7 +19,7 @@ namespace Test1.Models.Repositories
                 using (var command = new SqlCommand(@"
                 SELECT Id, FirstName, MiddleName, LastName, 
                        DOB, MobileNumber, Address 
-                FROM Employees1 ORDER BY Id;", connection))
+                FROM Test1.Employees ORDER BY Id;", connection))
                 {
                     connection.Open();
                     using (var reader = command.ExecuteReader())
@@ -45,7 +45,7 @@ namespace Test1.Models.Repositories
                 using (var command = new SqlCommand(@"
                 SELECT Id, FirstName, MiddleName, LastName, 
                        DOB, MobileNumber, Address 
-                FROM Employees1 
+                FROM Test1.Employees 
                 WHERE Id = @Id;", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
@@ -75,7 +75,7 @@ namespace Test1.Models.Repositories
 
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                INSERT INTO Employees1 
+                INSERT INTO Test1.Employees 
                     (FirstName, MiddleName, LastName, DOB, MobileNumber, Address) 
                 VALUES 
                     (@FirstName, @MiddleName, @LastName, @DOB, @MobileNumber, @Address);",
@@ -106,7 +106,7 @@ namespace Test1.Models.Repositories
 
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(@"
-                UPDATE Employees1 SET
+                UPDATE Test1.Employees SET
                     FirstName    = @FirstName,
                     MiddleName   = @MiddleName,
                     LastName     = @LastName,
@@ -145,7 +145,7 @@ namespace Test1.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "DELETE FROM Employees1 WHERE Id = @Id", connection))
+                    "DELETE FROM Test1.Employees WHERE Id = @Id", connection))
                 {
                     command.Parameters.AddWithValue("@Id", id);
 
@@ -172,7 +172,7 @@ namespace Test1.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "UPDATE Employees1 SET FirstName = 'SQLPerson' WHERE Id = (SELECT TOP 1 Id FROM Employees1 ORDER BY Id);", connection))
+                    "UPDATE Test1.Employees SET FirstName = 'SQLPerson' WHERE Id = (SELECT TOP 1 Id FROM Test1.Employees ORDER BY Id);", connection))
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -190,7 +190,7 @@ namespace Test1.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "UPDATE Employees1 SET MiddleName = 'I' WHERE 1 = 1;", connection))
+                    "UPDATE Test1.Employees SET MiddleName = 'I' WHERE 1 = 1;", connection))
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -208,7 +208,7 @@ namespace Test1.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "DELETE FROM Employees1 WHERE Id < 2;", connection))
+                    "DELETE FROM Test1.Employees WHERE Id < 2;", connection))
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -226,7 +226,7 @@ namespace Test1.Models.Repositories
             {
                 using (var connection = GetConnection())
                 using (var command = new SqlCommand(
-                    "TRUNCATE TABLE Employees1;", connection))
+                    "TRUNCATE TABLE Test1.Employees;", connection))
                 {
                     connection.Open();
                     command.ExecuteNonQuery();

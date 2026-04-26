@@ -33,6 +33,9 @@
         <button class="btn btn-primary" onclick="openCreate()">
             <span class="bi bi-plus-lg"></span> New
         </button>
+        <p class="text-danger">
+            @(TempData["Error"] ?? "")
+        </p>
     </p>
 
     @Html.Partial("_StudentListPartial", Model)

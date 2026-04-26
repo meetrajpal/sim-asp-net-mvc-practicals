@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using Test2.Models.Entities;
 using Test2.Models.Repositories;
 using Test2.Models.Services;
@@ -7,10 +9,16 @@ namespace Test2.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly StudentService _studentService;
+
+        public StudentController()
+        {
+            _studentService = new StudentService(new Repository<Student>());
+        }
+
         public ActionResult Index()
         {
-            StudentService studentService = new StudentService(new Repository<Student>());
-            return View(studentService.GetAll());
+            return View(_studentService.GetAll());
         }
 
         [HttpPost]
@@ -19,10 +27,19 @@ namespace Test2.Controllers
         {
             ModelState.Remove("Id");
             if (!ModelState.IsValid)
-                return RedirectToAction("Index");
+            {
+                return View(model);
+            }
 
-            var service = new StudentService(new Repository<Student>());
-            service.Create(model);
+            try
+            {
+                _studentService.Create(model);
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(model);
+            }
             return RedirectToAction("Index");
         }
 
@@ -31,21 +48,33 @@ namespace Test2.Controllers
         public ActionResult Edit(Student model)
         {
             if (!ModelState.IsValid)
-                return RedirectToAction("Index");
+            {
+                return View(model);
+            }
 
-            var service = new StudentService(new Repository<Student>());
-            var existing = service.GetById(model.Id);
-            if (existing == null)
+            try
+            {
+                _studentService.Update(model);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                TempData["Error"] = ex.Message;
                 return RedirectToAction("Index");
-
-            service.Update(model);
+            }
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            StudentService studentService = new StudentService(new Repository<Student>());
-            studentService.Delete(id);
+            try
+            {
+                _studentService.Delete(id);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
     }

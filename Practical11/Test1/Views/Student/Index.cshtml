@@ -30,6 +30,9 @@
         <a href="@Url.Action("Create")" class="btn btn-primary" title="Create new entry">
             <span class="bi bi-plus-lg"></span> New
         </a>
+        <p class="text-danger">
+            @(TempData["Error"] ?? "")
+        </p>
     </p>
     <table class="table">
         <tr>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Test1.Models.Entities.Employee>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h2>
+        Task:
+    </h2>
+    <ul>
+        <li>
+            Create a table employee with the following columns & data type using the table designer view.
+        </li>
+    </ul>
+    <ol>
+        <li>
+            (New button) Write an insert query to insert a record in the above table.
+        </li>
+        <li>
+            (New button) Insert some extra records into the table for testing.
+        </li>
+        <li>
+            (Query 3 button) Write an Update query to change the First Name to “SQLPerson” for the first record.
+        </li>
+        <li>
+            (Query 4 button) Write an Update query to change the Middle Name to “I” for all records.
+        </li>
+        <li>
+            (Query 5 button) Write a delete query to delete record having Id column value less than 2.
+        </li>
+        <li>
+            (Query 6 button) Write a query to delete all the data from the table.
+        </li>
+    </ol>
+
+    <hr />
+
+    <dl>
+        <dt>Notes</dt>
+        <dd>
+            <ul>
+                <li>
+                    Inserting Query is used in adding new employee.
+                </li>
+                <li>
+                    Other query tasks are separated in different buttons below.
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    <hr />
+
+    @{Html.RenderPartial("~/Views/Employee/_EmployeeListPartial.cshtml", Model);}
+</main>

@@ -28,7 +28,7 @@ CREATE TABLE Test3.Employees
 )
 GO
 
-INSERT INTO Test3.Designation (Designation) VALUES
+INSERT INTO Test3.Designation (DesignationName) VALUES
 ('Software Engineer'),
 ('Senior Software Engineer'),
 ('Team Lead'),

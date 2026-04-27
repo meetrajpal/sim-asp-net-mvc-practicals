@@ -46,7 +46,7 @@ namespace Test2.Controllers
             try
             {
                 _employeeService.Create(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (ArgumentException ex)
             {
@@ -69,7 +69,7 @@ namespace Test2.Controllers
             catch (KeyNotFoundException ex)
             {
                 TempData["Error"] = ex.Message;
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -87,7 +87,7 @@ namespace Test2.Controllers
             try
             {
                 _employeeService.Update(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (KeyNotFoundException ex)
             {
@@ -108,7 +108,7 @@ namespace Test2.Controllers
             try
             {
                 _employeeService.Delete(id);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (KeyNotFoundException ex)
             {

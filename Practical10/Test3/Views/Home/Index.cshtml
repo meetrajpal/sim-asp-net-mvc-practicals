@@ -18,7 +18,7 @@
         <dd>
             <ul>
                 <li>
-                    <u>Currently the caching location is set at client side.</u> So refreshing from browser, will generate new view due to browser sends request for new view complusory by setting <code>cache-control: max-age = 0</code>. So if we navigate through app then only cached view is returned.
+                    <u>Currently the caching location is set at client side.</u> So refreshing from browser, will generate new view due to browser sends request for new view complusory by setting <code>cache-control: max-age = 0</code>. So if we <a href="@Url.Action("/")" >navigate</a> through app then only cached view is returned.
                 </li>
                 <li>
                     If we set caching location to server then no matter how many request are made only cached view is sent up to particular time.

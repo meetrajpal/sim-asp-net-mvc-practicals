@@ -38,7 +38,7 @@ namespace Test2.Controllers
             try
             {
                 _designationService.Create(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (ArgumentException ex)
             {
@@ -70,7 +70,7 @@ namespace Test2.Controllers
             try
             {
                 _designationService.Update(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (KeyNotFoundException ex)
             {
@@ -89,7 +89,7 @@ namespace Test2.Controllers
             try
             {
                 _designationService.Delete(id);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (KeyNotFoundException ex)
             {

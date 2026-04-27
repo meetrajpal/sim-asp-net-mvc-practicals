@@ -1,4 +1,7 @@
-﻿CREATE TABLE Users
+﻿USE Practical15DB;
+GO
+
+CREATE TABLE Users
 (
     Id           INT PRIMARY KEY IDENTITY(1,1),
     Username     NVARCHAR(50)  NOT NULL UNIQUE,

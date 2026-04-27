@@ -1,4 +1,7 @@
-﻿USE Practical12DB;
+﻿CREATE DATABASE Practical12DB;
+GO
+
+USE Practical12DB;
 GO
 
 CREATE SCHEMA Test1

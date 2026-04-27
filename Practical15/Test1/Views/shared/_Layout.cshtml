@@ -14,8 +14,16 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="text-bg-dark text-center py-2">
-        @Html.ActionLink(@appName, "Index", "Home", new { area = "" }, new { @class = "fs-2 text-decoration-none text-white" })
+    <div class="container-fluid text-bg-dark">
+        <div class=" d-flex justify-content-between py-2 align-items-center">
+            @Html.ActionLink(@appName, "Index", "Home", new { area = "" }, new { @class = "fs-2 text-decoration-none text-white" })
+            @if (Request.IsAuthenticated && User.IsInRole("Users"))
+            {
+                <div>
+                    <span class="navbar-text me-2">Hello, @User.Identity.Name</span>
+                </div>
+            }
+        </div>
     </div>
     <div class="container body-content">
         @RenderBody()

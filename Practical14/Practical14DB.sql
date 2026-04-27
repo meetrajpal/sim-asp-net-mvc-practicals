@@ -1,8 +1,8 @@
-﻿create database Practical14DB;
-go
+﻿CREATE DATABASE Practical14DB;
+GO
 
-use Practical14DB;
-go
+USE Practical14DB;
+GO
 
 CREATE TABLE Employee
 (
@@ -11,5 +11,5 @@ CREATE TABLE Employee
     DOB  DATE        NOT NULL,
     Age  INT         NULL
 )
-go
+GO
 
